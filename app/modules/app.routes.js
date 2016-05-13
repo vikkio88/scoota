@@ -30,17 +30,17 @@
                     //Hashbang
                     $locationProvider.hashPrefix("!");
 
-                    $urlRouterProvider.otherwise("/ping");
+                    $urlRouterProvider.otherwise("/radios");
 
                     $stateProvider
                     //Sections
-                        .state("ping",
+                        .state("radios",
                             {
-                                url:"/ping",
-                                templateUrl: "app/views/sampleView.html",
-                                controller: "SampleController as vm",
+                                url:"/radios",
+                                templateUrl: "app/views/radios/radiosView.html",
+                                controller: "RadiosController as vm",
                                 ncyBreadcrumb: {
-                                    label: 'Ping'
+                                    label: 'Radios'
                                 }
                             }
                         );

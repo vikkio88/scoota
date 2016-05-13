@@ -4,30 +4,30 @@
 
         angular.module("Scoota")
             .controller(
-                "SampleController",
+                "RadiosController",
                 [
                     "Common",
                     "$scope",
                     "$stateParams",
-                    SampleController
+                    RadiosController
                 ]);
 
-        function SampleController(
+        function RadiosController(
             Common,
             $scope,
             $stateParams
         )
         {
             var vm = this;
-            vm.stuff = null;
+            vm.radios = null;
 
             Common.Get
             (
-                "ping"
+                "radios"
             ).then(
                function(data){
                     if(Common.isDebug()) console.log(data.data);
-                    vm.stuff = data.data;
+                    vm.radios = data.data;
                 },
                 function(data){
                     console.log(data);

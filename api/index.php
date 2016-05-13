@@ -17,13 +17,12 @@ $api->get('/ping', function ($request, $response, $args) {
             "config" => \App\Lib\Helpers\Config::get("config1.stuff")
         ]
     );
-    $body = $response->getBody();
-    $body->write($jsonResp);
+    return \App\Lib\Helpers\Responder::getJsonResponse($jsonResp, $response);
+});
 
-    return $response->withHeader(
-        'Content-Type',
-        'application/json'
-    )->withBody($body);
+$api->get('/radios', function ($request, $response, $args) {
+    $json = json_encode(\App\Lib\Helpers\Config::get('feeds.radios'));
+    return \App\Lib\Helpers\Responder::getJsonResponse($json, $response);
 });
 
 $api->run();
