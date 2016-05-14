@@ -1,0 +1,14 @@
+<h1>{{vm.show.channel.title}}</h1>
+<p>{{vm.show.channel.description}}</p>
+<p>{{vm.show.channel.link}}</p>
+
+<div class="list-group" ng-repeat="podcast in vm.show.channel.item">
+    <div class="list-group-item text-center">
+        <h2>{{podcast.title}}</h2>
+        <p>{{podcast.description}}</p>
+        <audio style="width: 100%;" controls>
+            <source src="{{podcast.url}}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>

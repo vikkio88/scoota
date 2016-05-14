@@ -25,4 +25,14 @@ $api->get('/radios', function ($request, $response, $args) {
     return \App\Lib\Helpers\Responder::getJsonResponse($json, $response);
 });
 
+
+$api->get('/radios/{radioName}/shows/{showName}', function ($request, $response, $args) {
+    $feed = new \App\Lib\Helpers\RadioFeedGateway;
+    return \App\Lib\Helpers\Responder::getJsonResponse(
+        $feed->getJsonFeed($args),
+        $response
+    );
+
+});
+
 $api->run();

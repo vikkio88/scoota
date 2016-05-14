@@ -33,7 +33,7 @@
                     $urlRouterProvider.otherwise("/radios");
 
                     $stateProvider
-                    //Sections
+                    //radio
                         .state("radios",
                             {
                                 url:"/radios",
@@ -41,6 +41,18 @@
                                 controller: "RadiosController as vm",
                                 ncyBreadcrumb: {
                                     label: 'Radios'
+                                }
+                            }
+                        )
+                //radio Show
+                        .state("radioShow",
+                            {
+                                url:"/radios/:radioName/shows/:showName",
+                                templateUrl: "app/views/radios/radioshowView.html",
+                                controller: "RadioshowController as vm",
+                                ncyBreadcrumb: {
+                                    parent: 'radios',
+                                    label: 'Show Details'
                                 }
                             }
                         );
