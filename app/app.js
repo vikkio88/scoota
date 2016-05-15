@@ -5,8 +5,10 @@
             [
                 "app.constant",
                 "app.routes",
+                "app.mediaplayer",
                 "app.common",
-                "app.directives"
+                "app.directives",
+                "ngSanitize"
             ]
         );
 

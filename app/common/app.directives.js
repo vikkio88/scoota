@@ -31,6 +31,15 @@
             }
         });
 
+        directives.directive('htmlvsrc', function() {
+            return {
+                restrict: 'A',
+                link: function(scope, element, attr) {
+                    attr.$set('src', attr.vsrc);
+                }
+            }
+        });
+
 
         //test one
         directives.directive('jumbosample',function(){

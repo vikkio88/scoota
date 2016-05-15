@@ -2,14 +2,14 @@
 
 <div class="list-group" ng-repeat="radio in vm.radios">
     <a href="#" data-toggle="collapse" data-target="#{{radio.name}}shows" class="list-group-item text-center">
-        <img src="{{radio.logo}}" class="img-circle" alt={{radio.name}}" width="150" height="150">
+        <img ng-src="{{radio.logo}}" class="img-circle" alt={{radio.name}}" width="150" height="150">
         <h3>{{radio.name | capitalize}}</h3>
     </a>
     <div id="{{radio.name}}shows" class="collapse">
         <h4>Shows</h4>
         <div class="list-group" ng-repeat="show in radio.shows">
             <a ui-sref="radioShow({ radioName: radio.name, showName: show.name })" data-target="#{{radio.name}}shows" class="list-group-item text-center">
-                <img src="{{show.img}}" class="img-circle" alt={{radio.name}}" width="50" height="50">
+                <img ng-src="{{show.img}}" class="img-circle" alt={{radio.name}}" width="50" height="50">
                 <h4>{{show.label}}</h4>
             </a>
         </div>

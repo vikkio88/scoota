@@ -1,14 +1,40 @@
-<h1>{{vm.show.channel.title}}</h1>
-<p>{{vm.show.channel.description}}</p>
-<p>{{vm.show.channel.link}}</p>
+<div class="jumbotron">
+    <h1>{{vm.show.channel.title}}</h1>
+    <p>{{vm.show.channel.description}}</p>
+    <p><a href="{{vm.show.channel.link}}" class="glyphicon glyphicon-link" aria-hidden="true"
+          title="{{vm.show.channel.title}}"></a></p>
+    <p>
 
+        <audio media-player="audio1" data-playlist="playlist1">
+            <source src="http://upload.wikimedia.org/wikipedia/en/d/d0/Rick_Astley_-_Never_Gonna_Give_You_Up.ogg"
+                    type="audio/ogg">
+        </audio>
+        <span ng-show="audio1.playing">Player status: Playing</span>
+        <span ng-show="!audio1.playing">Player status: Paused</span>
+        <button ng-class="audio1.playing ? 'glyphicon-pause':'glyphicon-play'" class="glyphicon"
+                ng-click="audio1.playPause()"></button>
+
+        <audio id="podcastPl" media-player="podcastPlayer">
+            <source ng-src="{{trustSrc(vm.selected.link)}}" type="audio/mp3">
+            <!--<source src="http://audio.radio24.ilsole24ore.com/radio24_audio/2016/160513-2024-s.mp3" type="audio/mp3">-->
+        </audio>
+        <span ng-show="podcastPlayer.playing">Player status: Playing</span>
+        <span ng-show="!podcastPlayer.playing">Player status: Paused</span>
+        <button ng-class="podcastPlayer.playing ? 'glyphicon-pause':'glyphicon-play'" class="glyphicon"
+                ng-click="podcastPlayer.playPause()" ng-click="playPodcast()">
+        </button>
+    </p>
+
+</div>
 <div class="list-group" ng-repeat="podcast in vm.show.channel.item">
-    <div class="list-group-item text-center">
+    <a ng-click="selected=podcast" class="list-group-item text-center">
         <h2>{{podcast.title}}</h2>
         <p>{{podcast.description}}</p>
+        <!--
         <audio style="width: 100%;" controls>
             <source src="{{podcast.url}}" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
-    </div>
+        -->
+    </a>
 </div>
