@@ -4,8 +4,21 @@
 namespace App\Lib\Helpers;
 
 
+/**
+ * Class RadioFeedGateway
+ * @package App\Lib\Helpers
+ */
 class RadioFeedGateway
 {
+    /**
+     * @var int
+     */
+    protected $maxPodcast = 15;
+
+    /**
+     * @param $args
+     * @return null|string
+     */
     private function checkArgsGenerateUrl($args)
     {
         $feeds = Config::get('feeds.radios');
@@ -36,16 +49,29 @@ class RadioFeedGateway
         return $url;
     }
 
+    /**
+     * @param $url
+     * @return string
+     */
     private function getRemoteFeedXml($url)
     {
         return file_get_contents($url);
     }
 
+    /**
+     * @param $xml
+     * @return string
+     */
     private function parseXmlToJson($xml)
     {
-        return json_encode(simplexml_load_string($xml));
+        $xml = simplexml_load_string($xml);
+        return json_encode(new \SimpleXMLElement($xml->asXML(), LIBXML_NOCDATA));
     }
 
+    /**
+     * @param $args
+     * @return string
+     */
     public function getJsonFeed($args)
     {
         $url = $this->checkArgsGenerateUrl($args);

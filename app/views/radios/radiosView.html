@@ -8,7 +8,7 @@
     <div id="{{radio.name}}shows" class="collapse">
         <h4>Shows</h4>
         <div class="list-group" ng-repeat="show in radio.shows">
-            <a href="#" data-target="#{{radio.name}}shows" class="list-group-item text-center">
+            <a ui-sref="radioShow({ radioName: radio.name, showName: show.name })" data-target="#{{radio.name}}shows" class="list-group-item text-center">
                 <img src="{{show.img}}" class="img-circle" alt={{radio.name}}" width="50" height="50">
                 <h4>{{show.label}}</h4>
             </a>
