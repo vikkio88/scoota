@@ -4,20 +4,18 @@
     <p><a href="{{vm.show.channel.link}}" class="glyphicon glyphicon-link" aria-hidden="true"
           title="{{vm.show.channel.title}}"></a></p>
     <p>
-        <button ng-click='vm.selected.audio.paused ? vm.selected.audio.play() : vm.selected.audio.pause()'>Pause</button>
-        <button ng-click='vm.selected.audio.restart()'>Stop</button>
-        <button ng-click='vm.selected.audio.muting = !vm.selected.audio.muting'>Mute</button>
-
-        <label>Current Time</label>
+        <button ng-class="vm.selected.audio.paused ? 'glyphicon-play':'glyphicon-pause'" class="glyphicon"
+                ng-click='vm.selected.audio.paused ? vm.selected.audio.play() : vm.selected.audio.pause()'></button>
+        <button ng-class="vm.selected.audio.muting ? 'glyphicon-volume-up' : 'glyphicon-volume-off'" class="glyphicon"
+                ng-click='vm.selected.audio.muting = !vm.selected.audio.muting'></button>
+        <h3>{{vm.selected.title}}</h3>
         <input class='form-control' type=text ng-model='vm.selected.audio.currentTime'>
-        <label>Volume</label>
-        <input class='form-control' type=range min=0 max=1 step=0.01 ng-model='vm.selected.audio.volume'>
-</div>
+        <input class="form-control" type="range" min=0 max=1 step=0.01 ng-model="vm.selected.audio.progress">
     </p>
 
 </div>
 <div class="list-group" ng-repeat="podcast in vm.show.channel.item">
-    <a ng-click="vm.selected=podcast;vm.selected.audio=loadTrust(podcast.link)" class="list-group-item text-center">
+    <a ng-click="vm.stopChangePodcast(podcast)" class="list-group-item text-center">
         <h2>{{podcast.title}}</h2>
         <p>{{podcast.description}}</p>
         <!--

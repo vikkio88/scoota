@@ -47,7 +47,7 @@
                 //radio Show
                         .state("radioShow",
                             {
-                                url:"/radios/:radioName/shows/:showName",
+                                url:"/radios/:radioName/shows/:showName?podcast&position",
                                 templateUrl: "app/views/radios/radioshowView.html",
                                 controller: "RadioshowController as vm",
                                 ncyBreadcrumb: {
