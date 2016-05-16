@@ -9,6 +9,7 @@
                 "$scope",
                 "$stateParams",
                 "$sce",
+                "ngAudio",
                 RadioshowController
             ]);
 
@@ -16,17 +17,14 @@
         Common,
         $scope,
         $stateParams,
-        $sce
+        $sce,
+        ngAudio
     ) {
         var vm = this;
         vm.show = null;
-
-        $scope.trustSrc = function(src) {
-            return $sce.trustAsResourceUrl(src);
-        };
-        $scope.playPodcast= function () {
-            var audio = document.getElementById("podcastPl");
-            audio.load();
+        $scope.loadTrust = function(src) {
+            $sce.trustAsResourceUrl(src);
+            return ngAudio.load(src);
         };
 
         vm.selected = {};
@@ -40,6 +38,7 @@
                 vm.selected = vm.show.channel.item[0];
                 console.log('selected', vm.selected);
                 $sce.trustAsResourceUrl(vm.selected.link);
+                vm.selected.audio = ngAudio.load(vm.selected.link);
             },
             function (data) {
                 console.log(data);

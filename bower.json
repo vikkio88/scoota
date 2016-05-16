@@ -23,6 +23,6 @@
     "angular-breadcrumb": "~0.4.1",
     "bootstrap": "~3.3.5",
     "angular-sanitize": "^1.5.5",
-    "angular-media-player": "^0.5.8"
+    "angular-audio": "^1.7.2"
   }
 }
