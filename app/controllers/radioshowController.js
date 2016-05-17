@@ -27,7 +27,9 @@
         vm.loadTrust = $scope.loadTrust;
         vm.selectItem = function (items) {
             if (this.toSelect > items.length || this.toSelect < 0) return items[0];
-            return items[this.toSelect];
+            var item = items[this.toSelect];
+            item.pos =this.toSelect;
+            return item;
         };
 
         vm.stopChangePodcast= function(podcast){
@@ -40,7 +42,19 @@
         vm.toSelect = isNaN(vm.toSelect) ? 0 : vm.toSelect;
         vm.position = parseInt($stateParams.position);
         vm.position = isNaN(vm.position) ? 0 : vm.position;
+        console.log(vm.position);
 
+        $scope.collapsed = true;
+        $scope.current = true;
+
+        vm.loadNext = function (pos) {
+            this.position = pos+1;
+            this.stopChangePodcast(this.selectItem(this.show.channel.item));
+        };
+        vm.loadPrev = function (pos) {
+            this.position = pos-1;
+            this.stopChangePodcast(this.selectItem(this.show.channel.item));
+        };
 
         Common.Get
         (
@@ -52,6 +66,7 @@
                 vm.selected = vm.selectItem(vm.show.channel.item);
                 $sce.trustAsResourceUrl(vm.selected.link);
                 vm.selected.audio = ngAudio.load(vm.selected.link);
+                vm.selected.audio.currentTime = Number(vm.position);
             },
             function (data) {
                 console.log(data);
