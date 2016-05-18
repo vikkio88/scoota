@@ -47,6 +47,14 @@
         $scope.collapsed = true;
         $scope.current = true;
 
+        //Material Icons
+        $scope.chevronDown = 'expand_more';
+        $scope.chevronUp = 'expand_less';
+        $scope.play= 'play_circle_filled';
+        $scope.pause = 'pause_circle_filled';
+        $scope.volumeOff = 'volume_off';
+        $scope.volumeUp = 'volume_up';
+
         vm.loadNext = function (pos) {
             this.position = pos+1;
             this.stopChangePodcast(this.selectItem(this.show.channel.item));

@@ -59,6 +59,20 @@ div.podcast {
     cursor: pointer;
 }
 
+.stick {
+    margin: auto;
+    position:fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    opacity:0.7;
+}
+
+.stick:hover {
+    opacity: 1;
+}
+
 input[type=range] {
     -webkit-appearance: none;
     background-color: silver;
