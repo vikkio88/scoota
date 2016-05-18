@@ -3,6 +3,25 @@
 return [
     'radios' => [
         [
+            'name' => 'radio1',
+            'logo' => 'https://jamesbondwebitalia.files.wordpress.com/2012/11/radiorai_logo_2010.png',
+            'baseurl' => 'http://www.radio.rai.it/radio1/podcast/rssradio1.jsp?id=',
+            'shows' => [
+                [
+                    'name' => 'inviato-speciale',
+                    'label' => 'Inviato Speciale',
+                    'img' => 'http://www.rai.tv/dl/img/2015/06/1433511612730INVIATO_SPECIALE_media_640x360.jpg',
+                    'code' => '3291'
+                ],
+                [
+                    'name' => 'hashtag-radio1',
+                    'label' => '#Hashtag Radio1',
+                    'img' => 'http://www.radio1.rai.it/dl/img/2016/02/1454498645449hashtag_programma_640x360.jpg',
+                    'code' => '13005'
+                ]
+            ]
+        ],
+        [
             'name' => 'radio2',
             'logo' => 'http://www.radio2.rai.it/dl/img/2014/07/1406711506246Radio2-Logo-new-640x360.jpg',
             'baseurl' => 'http://www.radio.rai.it/radio2/podcast/rssradio2.jsp?id=',
@@ -14,10 +33,22 @@ return [
                     'code' => '80'
                 ],
                 [
+                    'name' => 'socialclub',
+                    'label' => 'Radio2: Social Club',
+                    'img' => 'http://www.radio2.rai.it/dl/img/2015/09/1441363074937640360_pod.jpg',
+                    'code' => '4008'
+                ],
+                [
                     'name' => 'iprovinciali',
                     'label' => 'I Provinciali',
                     'img' => 'http://www.rai.tv/dl/img/2015/05/1432043024245I-PROVINCIALI.png',
                     'code' => '13607'
+                ],
+                [
+                    'name' => 'mu',
+                    'label' => 'Mu di Matteo Bordone',
+                    'img' => 'http://www.rai.it/dl/img/2015/04/1428429106261mu-640.png',
+                    'code' => '11466'
                 ],
                 [
                     'name' => 'ilruggitodelconiglio',
@@ -60,7 +91,7 @@ return [
                 [
                     'name' => 'lazanzara',
                     'label' => 'La Zanzara',
-                    'img' => 'http://www.amicidipontecarrega.it/wp-content/uploads/2013/11/radio24logo.jpg',
+                    'img' => 'http://i.ytimg.com/vi/hFlQc_0Zzt0/hqdefault.jpg',
                     'code' => 'lazanzara.xml'
                 ],
                 [
