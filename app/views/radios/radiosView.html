@@ -1,10 +1,10 @@
 <div class="jumbotron">
     <h1>List of Radios</h1>
     <div class="list-group well" ng-repeat="radio in vm.radios">
-        <a href="#" data-toggle="collapse" data-target="#{{radio.name}}shows" class="list-group-item text-center">
+        <div data-toggle="collapse" data-target="#{{radio.name}}shows" class="list-group-item text-center clickable">
             <img ng-src="{{radio.logo}}" class="img-rounded img-responsive" alt={{radio.name}}" width="250" height="250">
             <h1>{{radio.name | capitalize}}</h1>
-        </a>
+        </div>
         <div id="{{radio.name}}shows" class="collapse">
             <h2>Shows</h2>
             <div class="list-group well" ng-repeat="show in radio.shows">
