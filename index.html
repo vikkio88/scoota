@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Scoota</title>
@@ -7,6 +6,24 @@
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/css/app.css" rel="stylesheet">
     <link href="bower_components/angular-busy/angular-busy.css" rel="stylesheet">
+
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Js Libraries -->
+    <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="application/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Material Design -->
+    <link rel="stylesheet" type="text/css"
+          href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+    <script type="application/javascript"
+            src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script type="application/javascript"
+            src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 
     <!-- AngularJs -->
     <script type="application/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -18,12 +35,6 @@
     <script type="application/javascript" src="bower_components/angular-busy/angular-busy.js"></script>
     <script type="application/javascript" src="bower_components/angular-audio/app/angular.audio.js"></script>
     <script type="application/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-
-
-
-    <!-- Js Libraries -->
-    <script type="application/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="application/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- AngularApp -->
     <script type="application/javascript" src="app/app.js"></script>
@@ -41,38 +52,70 @@
 </head>
 
 <body ng-app="Scoota"> <!-- has to be the same as the one in app/app.js-->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#/">Scoota</a>
+
+<div class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./"><i class="material-icons">radio</i>
+                <div class="ripple-container"></div>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <!--
+            <ul class="nav navbar-nav">
+                <li class=""><a href="javascript:void(0)">Active</a></li>
+                <li><a href="javascript:void(0)">Link</a></li>
+                <li class="dropdown">
+                    <a href="index.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Dropdown header</li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                        <li><a href="javascript:void(0)">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            -->
+            <form class="navbar-form navbar-left">
+                <!--
+                <div class="form-group is-empty">
+                    <input type="text" class="form-control col-sm-8" placeholder="Search">
+                    <span class="material-input"></span>
+                </div>
+                -->
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:void(0)" class="btn btn-sm btn-primary">Login
+                    <div class="ripple-container"></div>
+                </a></li>
+                <li><a href="javascript:void(0)" class="btn btn-sm btn-info">SignUp
+                    <div class="ripple-container"></div>
+                </a></li>
+            </ul>
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="nav-toggle">
-        <ul class="nav navbar-nav">
-            <li data-ui-sref-active="active"><a data-ui-sref="route-reference">My Podcast</a></li>
-        </ul>
-        <form class="navbar-form navbar-right">
-            <button type="button" class="btn btn-success">SignUp</button>
-            <button type="button" class="btn btn-default">Login</button>
-        </form>
-    </div>
-</nav>
+</div>
 
 <div class="container">
     <div data-ncy-breadcrumb></div>
     <div data-ui-view></div>
 </div>
 
-
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted float-right">made with ❤ by <a href="http://vikkio.it">vikkio</a></p>
-    </div>
-</footer>
-
+<p class="text-muted float-right">made with ❤ by <a href="http://vikkio.it">vikkio</a></p>
 </body>
+<script>
+    $(document).ready(function () {
+        $.material.init();
+    });
+</script>
 
 </html>

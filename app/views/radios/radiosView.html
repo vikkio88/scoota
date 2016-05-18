@@ -1,17 +1,19 @@
-<h1>List of Radios</h1>
-
-<div class="list-group" ng-repeat="radio in vm.radios">
-    <a href="#" data-toggle="collapse" data-target="#{{radio.name}}shows" class="list-group-item text-center">
-        <img ng-src="{{radio.logo}}" class="img-circle" alt={{radio.name}}" width="150" height="150">
-        <h3>{{radio.name | capitalize}}</h3>
-    </a>
-    <div id="{{radio.name}}shows" class="collapse">
-        <h4>Shows</h4>
-        <div class="list-group" ng-repeat="show in radio.shows">
-            <a ui-sref="radioShow({ radioName: radio.name, showName: show.name })" data-target="#{{radio.name}}shows" class="list-group-item text-center">
-                <img ng-src="{{show.img}}" class="img-circle" alt={{radio.name}}" width="50" height="50">
-                <h4>{{show.label}}</h4>
-            </a>
+<div class="jumbotron">
+    <h1>List of Radios</h1>
+    <div class="list-group well" ng-repeat="radio in vm.radios">
+        <a href="#" data-toggle="collapse" data-target="#{{radio.name}}shows" class="list-group-item text-center">
+            <img ng-src="{{radio.logo}}" class="img-rounded" alt={{radio.name}}" width="150" height="150">
+            <h3>{{radio.name | capitalize}}</h3>
+        </a>
+        <div id="{{radio.name}}shows" class="collapse">
+            <h2>Shows</h2>
+            <div class="list-group well" ng-repeat="show in radio.shows">
+                <a ui-sref="radioShow({ radioName: radio.name, showName: show.name })"
+                   data-target="#{{radio.name}}shows" class="list-group-item text-center">
+                    <img ng-src="{{show.img}}" class="img-rounded" alt={{radio.name}}" width="50" height="50">
+                    <h4>{{show.label}}</h4>
+                </a>
+            </div>
         </div>
     </div>
 </div>

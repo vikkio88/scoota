@@ -23,6 +23,7 @@
     "angular-breadcrumb": "~0.4.1",
     "bootstrap": "~3.3.5",
     "angular-sanitize": "^1.5.5",
-    "angular-audio": "^1.7.2"
+    "angular-audio": "^1.7.2",
+    "bootstrap-material-design": "^0.5.9"
   }
 }

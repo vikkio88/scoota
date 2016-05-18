@@ -1,19 +1,29 @@
-<div class="podcast panel panel-default">
-    <div class="panel-heading">
-        <span class="float-right"><button class="btn btn-default btn-lg glyphicon glyphicon-step-forward" ng-click="vm.loadNext(vm.selected.pos)"></button></span>
-        <span class="float-left"><button class="btn btn-default btn-lg glyphicon glyphicon-step-backward" ng-click="loadPrev(vm.selected.pos)"></button></span>
-        <button class="btn btn-default btn-lg glyphicon" data-toggle="collapse" data-toggle="collapse" data-target="#podInfo"
-                data-ng-class="collapsed?'glyphicon-chevron-down':'glyphicon-chevron-up'" ng-click="collapsed=!collapsed"></button>
-        <button class="btn btn-default btn-lg glyphicon" ng-class="vm.selected.audio.paused ? 'glyphicon-play':'glyphicon-pause'"
+<div class="podcast panel panel-inverse">
+    <div class="panel-heading" style="color: white;">
+        <span class="float-right"><button class="btn btn-default btn-lg glyphicon glyphicon-step-forward"
+                                          ng-click="vm.loadNext(vm.selected.pos)"></button></span>
+        <span class="float-left"><button class="btn btn-default btn-lg glyphicon glyphicon-step-backward"
+                                         ng-click="loadPrev(vm.selected.pos)"></button></span>
+        <button class="btn btn-default btn-lg glyphicon" data-toggle="collapse" data-toggle="collapse"
+                data-target="#podInfo"
+                data-ng-class="collapsed?'glyphicon-chevron-down':'glyphicon-chevron-up'"
+                ng-click="collapsed=!collapsed"></button>
+        <button class="btn btn-default btn-lg glyphicon"
+                ng-class="vm.selected.audio.paused ? 'glyphicon-play':'glyphicon-pause'"
                 ng-click='vm.selected.audio.paused ? vm.selected.audio.play() : vm.selected.audio.pause()'></button>
-        <button class="btn btn-default btn-lg glyphicon" ng-class="vm.selected.audio.muting ? 'glyphicon-volume-up' : 'glyphicon-volume-off'"
+        <button class="btn btn-default btn-lg glyphicon"
+                ng-class="vm.selected.audio.muting ? 'glyphicon-volume-up' : 'glyphicon-volume-off'"
                 ng-click='vm.selected.audio.muting = !vm.selected.audio.muting'></button>
     </div>
     <div class="panel-body collapse" id="podInfo" ng-model="collapsed">
         <h3>{{vm.selected.title}}</h3>
-        <input class="form-control" type="range" min=0 max=1 step=0.01 ng-model="vm.selected.audio.progress">
-        <h3 class="clickable" ng-click="current=false" ng-show="current">{{vm.selected.audio.currentTime | secondsToDateTime | date:'HH:mm:ss'}}</h3>
-        <h3 class="clickable" ng-click="current=true" ng-hide="current">- {{vm.selected.audio.remaining | secondsToDateTime | date:'HH:mm:ss'}}</h3>
+        <input class="form-control slider" type="range" data-slider-min=0 data-slider-max=1 data-slider-step=0.01
+               data-slider-value="{{vm.selected.audio.progress}}" min=0 max=1 step=0.01
+               ng-model="vm.selected.audio.progress">
+        <h3 class="clickable" ng-click="current=false" ng-show="current">{{vm.selected.audio.currentTime |
+            secondsToDateTime | date:'HH:mm:ss'}}</h3>
+        <h3 class="clickable" ng-click="current=true" ng-hide="current">- {{vm.selected.audio.remaining |
+            secondsToDateTime | date:'HH:mm:ss'}}</h3>
     </div>
 </div>
 
@@ -23,9 +33,9 @@
     <p><a href="{{vm.show.channel.link}}" class="glyphicon glyphicon-link" aria-hidden="true"
           title="{{vm.show.channel.title}}"></a></p>
 </div>
-<div class="list-group" ng-repeat="podcast in vm.show.channel.item">
-    <a ng-click="vm.stopChangePodcast(podcast)" class="list-group-item text-center">
-        <h2>{{podcast.title}}</h2>
-        <p>{{podcast.description}}</p>
-    </a>
-</div>
+    <div class="list-group well" ng-repeat="podcast in vm.show.channel.item">
+        <a ng-click="vm.stopChangePodcast(podcast)" class="list-group-item text-center clickable">
+            <h2>{{podcast.title}}</h2>
+            <p>{{podcast.description}}</p>
+        </a>
+    </div>
